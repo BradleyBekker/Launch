@@ -17,7 +17,11 @@ public class P1movement : MonoBehaviour
     [SerializeField] private GameObject part3;
     Animator anim;
 
+    AudioSource audioSource;
 
+    public AudioClip walkAudio;
+    public AudioClip jumpAudio;
+    public AudioClip landAudio;
 
     // Update is called once per frame
     private void Start()
@@ -37,7 +41,10 @@ public class P1movement : MonoBehaviour
             anim.SetFloat("speed", 1);
             transform.Translate(Vector2.right * Time.deltaTime * speed, Space.World);
 
-
+            if(_isonground && !audioSource.isPlaying) {
+              audioSource.clip = walkAudio;
+              audioSource.Play();
+            }
         }
         if (Input.GetKey(KeyCode.A) && _allowMovement)
         {
@@ -46,21 +53,26 @@ public class P1movement : MonoBehaviour
             anim.SetFloat("speed", 1);
             transform.Translate(Vector2.left * Time.deltaTime * speed, Space.World);
 
-
+            if(_isonground && !audioSource.isPlaying) {
+              audioSource.clip = walkAudio;
+              audioSource.Play();
+            }
         }
         if (Input.GetKeyDown(KeyCode.W) && _isonground)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpHeight), ForceMode2D.Impulse);
             _isonground = false;
 
-       
+            audioSource.clip = jumpAudio;
+            audioSource.Play();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ground") { 
             _isonground = true;
- 
+            audioSource.clip = landAudio;
+            audioSource.Play();
         }
     }
 
