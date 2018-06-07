@@ -10,7 +10,14 @@ public class part4 : MonoBehaviour {
     public GameObject P2rocket;
     [SerializeField] private Image Player1part;
     [SerializeField] private Image Player2part;
+    Animator anim;
+    bool Colletable = true;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+
+    }
 
     private void Update()
     {
@@ -18,18 +25,24 @@ public class part4 : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "player1" && P1rocket.GetComponent<P1rocket>().part4 == false)
+        if (collision.gameObject.tag == "player1" && P1rocket.GetComponent<P1rocket>().part4 == false && Colletable)
         {
+            Colletable = false;
+            anim.SetTrigger("pickup");
+
             print("p1 got 3");
             P1rocket.GetComponent<P1rocket>().part4 = true;
-            DestroyObject(gameObject);
+            StartCoroutine(Wait());
             Player1part.enabled = true;
         }
-        if (collision.gameObject.tag == "player2" && P2rocket.GetComponent<P2rocket>().part4 == false)
+        if (collision.gameObject.tag == "player2" && P2rocket.GetComponent<P2rocket>().part4 == false && Colletable)
         {
+            Colletable = false;
+            anim.SetTrigger("pickup");
+
             print("p2 got 3");
             P2rocket.GetComponent<P2rocket>().part4 = true;
-            DestroyObject(gameObject);
+            StartCoroutine(Wait());
             Player2part.enabled = true;
         }
 
@@ -53,6 +66,14 @@ public class part4 : MonoBehaviour {
         {
             Player2part.enabled = false;
         }
+    }
+    IEnumerator Wait()
+    {
+        print("startwait");
+        yield return new WaitForSeconds(1.0f);
+        print("endwaitwait");
+        DestroyObject(gameObject);
+
     }
 }
 
