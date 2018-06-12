@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player1part1 : MonoBehaviour {
-   public GameObject P1rocket;
+    public AudioClip clip;
+    public AudioSource soundsource;
+
+
+
+    public GameObject P1rocket;
     public GameObject P2rocket;
     [SerializeField] private Image Player1part;
     [SerializeField] private Image Player2part;
@@ -12,7 +17,7 @@ public class Player1part1 : MonoBehaviour {
     bool Collectable = true;
     private void Start()
     {
-
+        soundsource.clip = clip;
         anim = GetComponent<Animator>();
 
     }
@@ -68,6 +73,7 @@ public class Player1part1 : MonoBehaviour {
     }
     IEnumerator Wait()
     {
+
         print("startwait");
         yield return new WaitForSeconds(1.0f);
         print("endwaitwait");

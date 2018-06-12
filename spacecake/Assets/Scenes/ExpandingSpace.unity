@@ -8853,6 +8853,16 @@ Prefab:
       propertyPath: m_Size.y
       value: 1.2799797
       objectReference: {fileID: 0}
+    - target: {fileID: 114366185937657592, guid: ca6a938a5c0a3ee46bd00ab7c57aa067,
+        type: 2}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1145b1ab5dbb2154ba4c601e9644c943, type: 3}
+    - target: {fileID: 114366185937657592, guid: ca6a938a5c0a3ee46bd00ab7c57aa067,
+        type: 2}
+      propertyPath: soundsource
+      value: 
+      objectReference: {fileID: 1935932740}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca6a938a5c0a3ee46bd00ab7c57aa067, type: 2}
   m_IsPrefabParent: 0
@@ -15590,6 +15600,7 @@ GameObject:
   - component: {fileID: 740811360}
   - component: {fileID: 740811359}
   - component: {fileID: 740811362}
+  - component: {fileID: 740811363}
   m_Layer: 0
   m_Name: object1 (1)
   m_TagString: Untagged
@@ -15635,6 +15646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8733380a3933b4c84d748ea1d0e644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 1145b1ab5dbb2154ba4c601e9644c943, type: 3}
+  soundsource: {fileID: 1935932740}
   P1rocket: {fileID: 608188908}
   P2rocket: {fileID: 1052178798}
   Player1part: {fileID: 1382792918}
@@ -15703,6 +15716,101 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &740811363
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 740811358}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1145b1ab5dbb2154ba4c601e9644c943, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &742510382
 Prefab:
   m_ObjectHideFlags: 0
@@ -36951,6 +37059,11 @@ Prefab:
       propertyPath: Player2part
       value: 
       objectReference: {fileID: 1910388939}
+    - target: {fileID: 82796346445564866, guid: 7bd77f6869907a74084b0ce9caf383b2,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bd77f6869907a74084b0ce9caf383b2, type: 2}
   m_IsPrefabParent: 0
@@ -36977,6 +37090,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &1935932740 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82796346445564866, guid: 7bd77f6869907a74084b0ce9caf383b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1935932737}
 --- !u!1001 &1939900215
 Prefab:
   m_ObjectHideFlags: 0
