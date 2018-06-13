@@ -6412,8 +6412,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 722669336}
   - {fileID: 706202048}
+  - {fileID: 722669336}
   - {fileID: 1943242}
   m_Father: {fileID: 1825746459}
   m_RootOrder: 1
@@ -11835,12 +11835,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a746c2f3bef3a834ea8bff2927e0efb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8.5
-  jumpHeight: 9
+  _isOnGround: 0
   playerrocket: {fileID: 608188908}
   part1: {fileID: 0}
   part2: {fileID: 0}
   part3: {fileID: 0}
+  rb: {fileID: 0}
+  position: {x: 0, y: 0}
+  minMovementSpeed: 0.1
+  maxMovementSpeed: 0.12
+  movementFactorGrowth: 11
+  jumpHeight: 0.12
+  jumpFactorGrowth: 2
+  falldownFactorGrowth: 1
 --- !u!50 &585629617
 Rigidbody2D:
   serializedVersion: 4
@@ -14428,12 +14435,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8f6ea3e181f8b46821ec40df623099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8.5
-  jumpHeight: 9
+  _isOnGround: 0
   playerrocket: {fileID: 1052178798}
   part1: {fileID: 0}
   part2: {fileID: 0}
   part3: {fileID: 0}
+  rb: {fileID: 0}
+  position: {x: 0, y: 0}
+  minMovementSpeed: 0.1
+  maxMovementSpeed: 0.12
+  movementFactorGrowth: 11
+  jumpHeight: 0.12
+  jumpFactorGrowth: 2
+  falldownFactorGrowth: 1
 --- !u!50 &706202045
 Rigidbody2D:
   serializedVersion: 4
@@ -14535,7 +14549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 296537157}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &706202049
 Animator:
@@ -15432,7 +15446,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 296537157}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &724504641
 Prefab:
