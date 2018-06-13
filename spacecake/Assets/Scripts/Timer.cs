@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour {
     public float timer = 0;
     public int scenenumber = 0;
-	
+
 	// Update is called once per frame
 	void Update () {
         timer++;
-        if (timer >= 30) {
+        if (timer >= 60) {
             SceneManager.LoadScene(scenenumber);
 
         }

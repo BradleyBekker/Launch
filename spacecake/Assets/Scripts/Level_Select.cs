@@ -9,37 +9,39 @@ public class Level_Select : MonoBehaviour {
     Image controlimage;
     [SerializeField]
     Image introimage;
+    bool timed = false;
     float timer = 0;
-
     void Start () {
         GameObject.Find("start_button").GetComponentInChildren<Text>().text = "";
     }
-	
+
   public void Onclick()
     {
 
         introimage.enabled = true;
 
-        
+
     }
     private void Update()
     {
-        print(timer);
-        if (introimage.enabled || controlimage.enabled) {
-            timer += 1;
-            if(timer >= 225)
+
+            if(Input.GetMouseButtonDown(0) && introimage.enabled)
             {
-                timer = 0;
+                
                 introimage.enabled = false;
                 controlimage.enabled = true;
-
+                timed = true;
             }
 
-        }
 
-        if (timer >= 215 && controlimage.enabled)
+
+        if (Input.GetMouseButtonDown(0) && controlimage.enabled && timer > 4)
         {
             SceneManager.LoadScene("ExpandingSpace");
+        }
+        if (timed)
+        {
+            timer++;
         }
     }
 }
