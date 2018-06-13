@@ -33,6 +33,7 @@ public class Player1part1 : MonoBehaviour {
     {
         if (collision.gameObject.tag == "player1" && P1rocket.GetComponent<P1rocket>().part1 == false && Collectable)
         {
+            soundsource.Play();
             Collectable = false;
             print("p1 got 1");
             anim.SetTrigger("pickup");
@@ -42,6 +43,7 @@ public class Player1part1 : MonoBehaviour {
         }
         if (collision.gameObject.tag == "player2" && P2rocket.GetComponent<P2rocket>().part1 == false && Collectable)
         {
+            soundsource.Play();
             Collectable = false;
             print("p2 got 1");
             anim.SetTrigger("pickup");

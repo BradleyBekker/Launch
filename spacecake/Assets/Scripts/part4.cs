@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class part4 : MonoBehaviour {
-
+    
+    public AudioSource soundsource;
 
     public GameObject P1rocket;
     public GameObject P2rocket;
@@ -16,6 +17,7 @@ public class part4 : MonoBehaviour {
     private void Start()
     {
         anim = GetComponent<Animator>();
+        soundsource = GetComponent<AudioSource>();
 
     }
 
@@ -27,9 +29,9 @@ public class part4 : MonoBehaviour {
     {
         if (collision.gameObject.tag == "player1" && P1rocket.GetComponent<P1rocket>().part4 == false && Colletable)
         {
+            soundsource.Play();
             Colletable = false;
             anim.SetTrigger("pickup");
-
             print("p1 got 3");
             P1rocket.GetComponent<P1rocket>().part4 = true;
             StartCoroutine(Wait());
@@ -37,9 +39,9 @@ public class part4 : MonoBehaviour {
         }
         if (collision.gameObject.tag == "player2" && P2rocket.GetComponent<P2rocket>().part4 == false && Colletable)
         {
+            soundsource.Play();
             Colletable = false;
             anim.SetTrigger("pickup");
-
             print("p2 got 3");
             P2rocket.GetComponent<P2rocket>().part4 = true;
             StartCoroutine(Wait());

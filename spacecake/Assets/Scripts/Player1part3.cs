@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player1part3 : MonoBehaviour {
+    
+    public AudioSource soundsource;
 
     public GameObject P1rocket;
     public GameObject P2rocket;
@@ -14,6 +16,7 @@ public class Player1part3 : MonoBehaviour {
     private void Start()
     {
         anim = GetComponent<Animator>();
+        soundsource = GetComponent<AudioSource>();
 
     }
 
@@ -25,6 +28,7 @@ public class Player1part3 : MonoBehaviour {
     {
         if (collision.gameObject.tag == "player1" && P1rocket.GetComponent<P1rocket>().part3 == false && collectable)
         {
+            soundsource.Play();
             collectable = false;
             print("p1 got 3");
             anim.SetTrigger("pickup");
@@ -35,6 +39,7 @@ public class Player1part3 : MonoBehaviour {
         }
         if (collision.gameObject.tag == "player2" && P2rocket.GetComponent<P2rocket>().part3 == false && collectable)
         {
+            soundsource.Play();
             collectable = false;
             print("p2 got 3");
             anim.SetTrigger("pickup");
