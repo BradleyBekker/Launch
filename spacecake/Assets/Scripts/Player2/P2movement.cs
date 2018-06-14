@@ -93,6 +93,9 @@ public class P2movement : MonoBehaviour
             _isOnGround = false;
             jumping = true;
             jumpFactor = 60;
+
+            anim.SetTrigger("prep");
+            anim.SetBool("jumping",true);
         }
 
         if(!_isOnGround)
@@ -108,6 +111,9 @@ public class P2movement : MonoBehaviour
                 position.y += jumpValue;
             }
 
+        }
+        if(jumpFactor == 180) { anim.SetBool("jumping", false);
+            anim.SetBool("falling", true);
         }
     }
 
@@ -132,7 +138,9 @@ public class P2movement : MonoBehaviour
             jumping = false;
             jumpFactor = 60;
             falldownFactor = minFalldown;
-            print(collision.collider.name);
+            anim.SetBool("falling",false);
+            anim.SetTrigger("land");
+
         }
     }
 
