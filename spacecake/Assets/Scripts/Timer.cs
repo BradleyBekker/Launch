@@ -9,8 +9,7 @@ public class Timer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        timer++;
-        if (timer >= 60) {
+        if (Input.GetMouseButtonDown(0)) {
             SceneManager.LoadScene(scenenumber);
 
         }
