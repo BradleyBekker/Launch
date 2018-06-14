@@ -116,7 +116,6 @@ public class P1movement : MonoBehaviour
         position.y -= gravityFactor;
         if(!jumping)
         {
-            print("gravity");
             position.y += (float) (jumpHeight * Math.Sin(Math.PI * falldownFactor / 180));
             if(falldownFactor + falldownFactorGrowth > maxFalldown)
             {

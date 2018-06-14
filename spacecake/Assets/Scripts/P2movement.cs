@@ -116,7 +116,6 @@ public class P2movement : MonoBehaviour
         position.y -= gravityFactor;
         if(!jumping)
         {
-            print("gravity");
             position.y += (float) (jumpHeight * Math.Sin(Math.PI * falldownFactor / 180));
             if(falldownFactor + falldownFactorGrowth > maxFalldown)
             {
@@ -133,6 +132,7 @@ public class P2movement : MonoBehaviour
             jumping = false;
             jumpFactor = 60;
             falldownFactor = minFalldown;
+            print(collision.collider.name);
         }
     }
 
