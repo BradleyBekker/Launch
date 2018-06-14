@@ -152,6 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1498636502214246, guid: 11863eaca80495441a34b72b2c4c6e68, type: 2}
+      propertyPath: m_Name
+      value: Player2Rocket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11863eaca80495441a34b72b2c4c6e68, type: 2}
   m_IsPrefabParent: 0
@@ -10128,6 +10132,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1106614065065680, guid: 5a872db0fbb6ea44b9b214613fa58943, type: 2}
+      propertyPath: m_Name
+      value: Player1Rocket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a872db0fbb6ea44b9b214613fa58943, type: 2}
   m_IsPrefabParent: 0
@@ -11818,7 +11826,7 @@ GameObject:
   - component: {fileID: 585629622}
   - component: {fileID: 585629623}
   m_Layer: 0
-  m_Name: Player1PlaceHolder
+  m_Name: Player1
   m_TagString: player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14418,7 +14426,7 @@ GameObject:
   - component: {fileID: 706202044}
   - component: {fileID: 706202049}
   m_Layer: 0
-  m_Name: Player2PlaceHolder
+  m_Name: Player2
   m_TagString: player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21125,7 +21133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1011281436}
   m_Layer: 0
-  m_Name: parts
+  m_Name: RocketParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

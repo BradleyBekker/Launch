@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class part5 : MonoBehaviour
+public class RocketPart5 : MonoBehaviour
 {
 
     public AudioSource soundsource;
