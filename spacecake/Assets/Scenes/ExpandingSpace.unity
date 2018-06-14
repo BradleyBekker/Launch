@@ -156,6 +156,12 @@ Prefab:
       propertyPath: m_Name
       value: Player2Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 212606828493534432, guid: 11863eaca80495441a34b72b2c4c6e68,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cf57128cbc3212c48a689be6314dd435,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11863eaca80495441a34b72b2c4c6e68, type: 2}
   m_IsPrefabParent: 0
@@ -10875,6 +10881,12 @@ Prefab:
       propertyPath: m_Name
       value: Player1Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 212945762701764194, guid: 5a872db0fbb6ea44b9b214613fa58943,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 55582c4d0ab78284ca84a3028f94f13e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a872db0fbb6ea44b9b214613fa58943, type: 2}
   m_IsPrefabParent: 0
@@ -15461,13 +15473,13 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &706202046
@@ -28207,7 +28219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1303495128
 Transform:
   m_ObjectHideFlags: 0
