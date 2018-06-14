@@ -93,6 +93,8 @@ public class P1movement : MonoBehaviour
             _isOnGround = false;
             jumping = true;
             jumpFactor = 60;
+            anim.SetTrigger("prep");
+            anim.SetBool("jumping", true);
         }
 
         if(!_isOnGround)
@@ -101,6 +103,8 @@ public class P1movement : MonoBehaviour
             if(jumpFactor + jumpFactorGrowth > maxJumpFalldown)
             {
                 jumping = false;
+
+                
             }
             else
             {
@@ -108,6 +112,11 @@ public class P1movement : MonoBehaviour
                 position.y += jumpValue;
             }
 
+        }
+        if (jumpFactor == 180)
+        {
+            anim.SetBool("jumping", false);
+            anim.SetBool("falling", true);
         }
     }
 
@@ -133,6 +142,8 @@ public class P1movement : MonoBehaviour
             jumping = false;
             jumpFactor = 60;
             falldownFactor = minFalldown;
+            anim.SetBool("falling", false);
+            anim.SetTrigger("land");
         }
     }
 
