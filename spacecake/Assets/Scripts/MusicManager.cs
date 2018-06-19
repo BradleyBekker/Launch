@@ -20,21 +20,14 @@ public class MusicManager : MonoBehaviour {
 	//private AudioSource source3;
 	public bool source3Finished = false;
 
-	private bool transDefaultRunning;
-	private bool trans1Running;
-	private bool trans2Running;
+	public bool transDefaultRunning;
+	public bool trans1Running;
+	public bool trans2Running;
 
 	private int currentlyPlaying = 1;
 
 	public float volumeAdjustmentPerFrame;
 
-	// Use this for initialization
-	void Start () { /*
-		source1 = theme1.GetComponent<AudioSource>();
-		source2 = theme2.GetComponent<AudioSource>();
-		source3 = theme3.GetComponent<AudioSource>(); */
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		checkParts();
@@ -114,24 +107,24 @@ public class MusicManager : MonoBehaviour {
 	// change themesong back to default
 	public void transitionDefault()
 	{ 
-		if(theme1.GetComponent<AudioSource>().volume < 1 && !source1Finished) {
-			if(theme1.GetComponent<AudioSource>().volume + volumeAdjustmentPerFrame > 1) {
+		if(theme1.GetComponent<AudioSource>().volume <= 1 && !source1Finished) {
+			if(theme1.GetComponent<AudioSource>().volume + volumeAdjustmentPerFrame >= 1) {
 				theme1.GetComponent<AudioSource>().volume = 1;
 				source1Finished = true;
 			}
 			else theme1.GetComponent<AudioSource>().volume += volumeAdjustmentPerFrame;
 		}
 
-		if(theme2.GetComponent<AudioSource>().volume > 0 && !source2Finished) {
-			if(theme2.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame < 0) {
+		if(theme2.GetComponent<AudioSource>().volume >= 0 && !source2Finished) {
+			if(theme2.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame <= 0) {
 				theme2.GetComponent<AudioSource>().volume = 0;
 				source2Finished = true;
 			}
 			else theme2.GetComponent<AudioSource>().volume -= volumeAdjustmentPerFrame;
 		}
 
-		if(theme3.GetComponent<AudioSource>().volume > 0 && !source3Finished) {
-			if(theme3.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame < 0) {
+		if(theme3.GetComponent<AudioSource>().volume >= 0 && !source3Finished) {
+			if(theme3.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame <= 0) {
 				theme3.GetComponent<AudioSource>().volume = 0;
 				source3Finished = true;
 			}
@@ -140,6 +133,7 @@ public class MusicManager : MonoBehaviour {
 
 		if(source1Finished && source2Finished && source3Finished) {
 			transDefaultRunning = false;
+			trans2Running = false;
 			source1Finished = false;
 			source2Finished = false;
 			source3Finished = false;
@@ -149,17 +143,16 @@ public class MusicManager : MonoBehaviour {
 	// change themesong to 2nd fase
 	public void transition1()
 	{
-		
-		if(theme1.GetComponent<AudioSource>().volume > 0 && !source1Finished) {
-			if(theme1.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame < 0) {
+		if(theme1.GetComponent<AudioSource>().volume >= 0 && !source1Finished) {
+			if(theme1.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame <= 0) {
 				theme1.GetComponent<AudioSource>().volume = 0;
 				source1Finished = true;
 			}
 			else theme1.GetComponent<AudioSource>().volume -= volumeAdjustmentPerFrame;
 		}
 
-		if(theme2.GetComponent<AudioSource>().volume < 1 && !source2Finished) {
-			if(theme2.GetComponent<AudioSource>().volume + volumeAdjustmentPerFrame > 1) {
+		if(theme2.GetComponent<AudioSource>().volume <= 1 && !source2Finished) {
+			if(theme2.GetComponent<AudioSource>().volume + volumeAdjustmentPerFrame >= 1) {
 				theme2.GetComponent<AudioSource>().volume = 1;
 				source2Finished = true;
 			}
@@ -168,34 +161,54 @@ public class MusicManager : MonoBehaviour {
 			}
 		}
 
-		if(source1Finished && source2Finished) {
+		if(theme3.GetComponent<AudioSource>().volume >= 0 && !source3Finished) {
+			if(theme3.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame <= 0) {
+				theme3.GetComponent<AudioSource>().volume = 0;
+				source3Finished = true;
+			}
+			else theme3.GetComponent<AudioSource>().volume -= volumeAdjustmentPerFrame;
+		}
+
+		if(source1Finished && source2Finished && source3Finished) {
+			transDefaultRunning = false;
 			trans1Running = false;
 			source1Finished = false;
 			source2Finished = false;
+			source3Finished = false;
 		}
 	}
 
 	// change themesong to final fase
 	public void transition2()
 	{
-		if(theme2.GetComponent<AudioSource>().volume > 0 && !source2Finished) {
-			if(theme2.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame < 0) {
+		if(theme1.GetComponent<AudioSource>().volume >= 0 && !source1Finished) {
+			if(theme1.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame <= 0) {
+				theme1.GetComponent<AudioSource>().volume = 0;
+				source1Finished = true;
+			}
+			else theme1.GetComponent<AudioSource>().volume -= volumeAdjustmentPerFrame;
+		}
+
+		if(theme2.GetComponent<AudioSource>().volume >= 0 && !source2Finished) {
+			if(theme2.GetComponent<AudioSource>().volume - volumeAdjustmentPerFrame <= 0) {
 				theme2.GetComponent<AudioSource>().volume = 0;
 				source2Finished = true;
 			}
 			else theme2.GetComponent<AudioSource>().volume -= volumeAdjustmentPerFrame;
 		}
 
-		if(theme3.GetComponent<AudioSource>().volume < 1 && !source3Finished) {
-			if(theme3.GetComponent<AudioSource>().volume + volumeAdjustmentPerFrame > 1) {
+		if(theme3.GetComponent<AudioSource>().volume <= 1 && !source3Finished) {
+			if(theme3.GetComponent<AudioSource>().volume + volumeAdjustmentPerFrame >= 1) {
 				theme3.GetComponent<AudioSource>().volume = 1;
 				source3Finished = true;
 			}
 			else theme3.GetComponent<AudioSource>().volume += volumeAdjustmentPerFrame;
 		}
 
-		if(source2Finished && source3Finished) {
+		if(source1Finished && source2Finished && source3Finished) {
+			trans1Running = false;
 			trans2Running = false;
+			source1Finished = false;
 			source2Finished = false;
 			source3Finished = false;
 		}

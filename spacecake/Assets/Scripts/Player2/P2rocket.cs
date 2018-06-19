@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class P2rocket : MonoBehaviour {
+public class P2rocket : MonoBehaviour 
+{
+    public GameObject BackgroundMusic;
+
     public bool part1 = false;
     public bool part2 = false;
     public bool part3 = false;
@@ -15,6 +18,12 @@ public class P2rocket : MonoBehaviour {
         if (part1 && part2 && part3 && part4 && part5 && collision.gameObject.tag == "player2")
         {
             print("p2 win");
+            BackgroundMusic.GetComponent<MusicManager>().transDefaultRunning = true;
+            part1 = false;
+            part2 = false;
+            part3 = false;
+            part4 = false;
+            part5 = false;
             SceneManager.LoadScene(3);
         }
     }
