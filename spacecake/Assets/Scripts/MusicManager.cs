@@ -37,7 +37,6 @@ public class MusicManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print("update");
 		checkParts();
 
 		if(transDefaultRunning) {
@@ -169,9 +168,7 @@ public class MusicManager : MonoBehaviour {
 			}
 		}
 
-		print("trans1|| src1: " + theme1.GetComponent<AudioSource>().volume + " || src2: " + theme2.GetComponent<AudioSource>().volume);
 		if(source1Finished && source2Finished) {
-			print("finished");
 			trans1Running = false;
 			source1Finished = false;
 			source2Finished = false;
