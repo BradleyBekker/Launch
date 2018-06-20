@@ -33,6 +33,7 @@ public class RocketPart5 : MonoBehaviour
             soundsource.Play();
             Colletable = false;
             anim.SetTrigger("pickup");
+            print("p1 got 3");
             P1rocket.GetComponent<P1rocket>().part5 = true;
             StartCoroutine(Wait());
             Player1part.enabled = true;
@@ -42,6 +43,7 @@ public class RocketPart5 : MonoBehaviour
             soundsource.Play();
             Colletable = false;
             anim.SetTrigger("pickup");
+            print("p2 got 3");
             P2rocket.GetComponent<P2rocket>().part5 = true;
             StartCoroutine(Wait());
             Player2part.enabled = true;
@@ -70,9 +72,9 @@ public class RocketPart5 : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        //print("startwait");
+        print("startwait");
         yield return new WaitForSeconds(1.0f);
-        //print("endwaitwait");
+        print("endwaitwait");
         DestroyObject(gameObject);
 
     }

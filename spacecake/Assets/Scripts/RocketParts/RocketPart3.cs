@@ -30,6 +30,7 @@ public class RocketPart3 : MonoBehaviour {
         {
             soundsource.Play();
             collectable = false;
+            print("p1 got 3");
             anim.SetTrigger("pickup");
 
             P1rocket.GetComponent<P1rocket>().part3 = true;
@@ -40,6 +41,7 @@ public class RocketPart3 : MonoBehaviour {
         {
             soundsource.Play();
             collectable = false;
+            print("p2 got 3");
             anim.SetTrigger("pickup");
 
             P2rocket.GetComponent<P2rocket>().part3 = true;
@@ -71,9 +73,9 @@ public class RocketPart3 : MonoBehaviour {
     }
     IEnumerator Wait()
     {
-        //print("startwait");
+        print("startwait");
         yield return new WaitForSeconds(1.0f);
-        //print("endwaitwait");
+        print("endwaitwait");
         DestroyObject(gameObject);
 
     }
