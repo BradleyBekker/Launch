@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,8 +24,6 @@ public class MusicManager : MonoBehaviour {
 	public bool trans1Running;
 	public bool trans2Running;
 
-	private int currentlyPlaying = 1;
-
 	public float volumeAdjustmentPerFrame;
 
 	// Update is called once per frame
@@ -47,7 +45,7 @@ public class MusicManager : MonoBehaviour {
 	{
 		int player1Parts= 0;
 		int player2Parts= 0;
-		
+
 		if(rocketPlayer1.GetComponent<P1rocket>().part1) {
 			player1Parts++;
 		}
@@ -79,7 +77,7 @@ public class MusicManager : MonoBehaviour {
 		if(rocketPlayer2.GetComponent<P2rocket>().part5) {
 			player2Parts++;
 		}
-		
+
 		int finalValue;
 		if(player1Parts > player2Parts && player1Parts != player2Parts) finalValue = player1Parts;
 		else finalValue = player2Parts;
@@ -106,7 +104,7 @@ public class MusicManager : MonoBehaviour {
 
 	// change themesong back to default
 	public void transitionDefault()
-	{ 
+	{
 		if(theme1.GetComponent<AudioSource>().volume <= 1 && !source1Finished) {
 			if(theme1.GetComponent<AudioSource>().volume + volumeAdjustmentPerFrame >= 1) {
 				theme1.GetComponent<AudioSource>().volume = 1;
